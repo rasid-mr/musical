@@ -179,10 +179,8 @@ const activeClass = ($event) => {
 
 
 
-<style>
-.router-link-active {
-   text-decoration: underline;
-}
+<style lang="scss">
+ 
 
 .router-link-exact-active {
    opacity: 1 !important;
@@ -192,12 +190,14 @@ const activeClass = ($event) => {
 
    --color-dark-rgb: 24, 24, 26;
    --color-dark: rgba(var(--color-dark-rgb), 1);
+   --color-dark: #ffffff;
    --color-light-rgb: 255, 255, 255;
    --color-light: rgba(var(--color-light-rgb), 1);
    --color-white: #FFFFFF;
    --color-black-rgb: 0, 0, 0;
    --color-black: rgba(var(--color-black-rgb), 1);
-   --color-primary: #70ff4d;
+   // --color-primary: #70ff4d;
+   --color-primary:  #FFC31B;
    --color-primary-dark: #65f242;
    --color-gray: #828282;
    --color-darkgray-rgb: 30, 30, 32;
@@ -465,10 +465,23 @@ nav.theme-nav-transitioning .btn.btn-contact .btn-duplicate-text span {
 .btn.btn-contact .btn-duplicate-text span {
    color: var(--color-light);
 }
-
+.btn-original-text  {
+   /* text-decoration: underline; */
+   position: relative;
+   &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      border-bottom: 2px solid $color-primary-orange;
+      text-decoration: underline;
+   }
+}
 nav.theme-nav-dark .btn-contact .btn-original-text span {
    color: var(--color-light);
    transition: color 0.2s ease-in-out;
+   
 }
 
 nav.theme-nav-dark .btn-contact .btn-original-fill {

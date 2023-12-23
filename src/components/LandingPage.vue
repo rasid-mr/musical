@@ -7,7 +7,8 @@
 
   <div class="hero">
     <div class="hero_image">
-      <img class="hero_image_music" src="../assets/hero_image.jpg" alt="">
+      <img class="hero_image_music" src="../assets/landing-22.jpg" alt="">
+      <img class="hero_image_music" src="../assets/landing-2.jpg" alt="">
     </div>
   </div>
 
@@ -15,7 +16,7 @@
     <img class="icon_img icon_img_music" src="../assets/noun-music-icon.svg" alt="">
     <img class="icon_img icon_img_play"  src="../assets/noun-play.svg" alt="">
     <img class="icon_img icon_img_star"  src="../assets/noun-star.svg" alt="">
-    <img class="icon_img icon_img_noun-trumpet"  src="../assets/noun-trumpet.svg" alt="">
+    <img class="icon_img icon_img_noun-trumpet"  src="../assets/trumpet.svg" alt="">
     <img class="icon_img icon_img_saxophone"  src="../assets/saxophone.svg" alt="">
     <img class="icon_img icon_img_trumpet"  src="../assets/trumpet.svg" alt="">
   </div>
@@ -143,6 +144,16 @@ gsap.to('.icon_img', {
 }
 .hero_image {
   display: flex;
+  position: relative;
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(27, 27, 27, .4);
+  }
 }
 .hero_image_music {
  width: 100%;

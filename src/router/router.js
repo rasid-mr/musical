@@ -6,7 +6,8 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path:'/',
-    redirect:'/home'
+    redirect:'/home',
+    component:TheHome,
   },
    
 {

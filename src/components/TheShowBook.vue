@@ -1,5 +1,5 @@
 <template>
-    <div class="container pot">
+    <div class="container_show pot">
 
         <div class="section_show">
             <div class="section_container">
@@ -118,15 +118,27 @@
     </div>
 </template>
 <style scoped lang="scss">
-.container {
-    margin-top: 20rem;
+.container_show {
+    padding-top: var(--size-fluid-8);
+    // padding: 0 $space-left;
+
+    background-color: $color-primary-blue;
+
+    @include respond(tab-port) {
+        display: grid;
+        gap: var(--size-fluid-5);
+    }
+    
 }
 
 .section {
 
     min-height: 100vh;
-    scroll-snap-type: y mandatory;
-    scroll-snap-align: center;
+    // scroll-snap-type: y mandatory;
+    // scroll-snap-align: center;
+
+
+    
 
 }
 
@@ -135,13 +147,48 @@
     grid-template-columns: 1fr 52.8169014085%;
     gap: 1.875rem;
     /* align-items: center; */
+    grid-auto-flow: column;   
+
+    @include respond(tab-port) {
+     grid-auto-flow: row;  
+    //  grid-template-rows: 1fr 1fr;
+     grid-template-columns: 1fr;
+    
+    }
+
+    & .img_content {
+
+        @include respond(tab-port) {
+
+            grid-column-start: 1;
+            grid-row-start: 1; 
+        }
+    }
 }
 
 .section_container_reverse {
     display: grid;
     grid-template-columns: 52.8169014085% 1fr;
     gap: 1.875rem;
-    /* align-items: center; */
+    
+   @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    
+   }
+
+    & .text_content {
+        display: grid;
+        justify-content: flex-end;
+        justify-items: flex-end;
+        text-align: right;
+        @include respond(tab-port) {
+            text-align: left;
+            justify-items: flex-start;
+
+        
+        }
+    }
+     
 
 }
 
@@ -149,21 +196,41 @@
 .img_content {
     height: 100vh;
     width: 100%;
-    border-radius: 50%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba($color-primary-pumpkin, .96);
+   
 }
 
 .img_content img {
     width: var(--size-fluid-10);
+    width: #{scaleValue(500)};
     border-radius: 15px;
+    @include respond(tab-port) {
+       
+        width:80%;
+    
+   }
 }
 
 .text_content {
-
     h2 {
-        font-size: large;
+        font-size: var(--font-size-fluid-3);
+        color: $color-primary-orange;
+    }
+    p {
+        color: $color-white-primary;
+        width: 80%;
+        line-height: 1.5;
+        word-spacing: .2rem;
+        
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
+       
     }
 }
 
@@ -184,7 +251,7 @@
 
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -222,6 +289,30 @@ onMounted(() => {
                 })
     
     })
+
+
+
+    ScrollTrigger.getAll().forEach((element) => {
+      element.enable();
+      element.refresh();
+      // console.log(element.vars);
+    })
+
+    // setTimeout(() => {
+    //   ScrollTrigger.getAll().forEach((element) => {
+    //     element.enable();
+    //     element.refresh();
+        
+    //   })
+    // }, 10)
+})
+
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach((element) => {
+      element.kill();
+      // console.log({ element });
+    });
 })
 </script>
 

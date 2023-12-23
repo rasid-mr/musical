@@ -27,19 +27,19 @@ export default defineConfig({
           font-size: #{scaleValue(30)};
         }
         $nav-height:9rem;
-        $color-primary-olive: #5F6F52;
-        $color-primary-light-olive: #A9B388;
-        $color-primary-pale-lemon: #FEFAE0;
-        $color-primary-clay-rose:#B99470;
+        $color-primary-blue: #1DB7B9;
+        $color-primary-deep-blue: #126D68;
+        $color-primary-orange: #FFC31B;
+        $color-primary-pumpkin:#F87523;
         
-        $color-white: #fff;
-        $color-black: #000;
+        $color-white-primary:#E7DCC9;
+        $color-black: rgb(27, 27, 27);
 
 
-        $space-left:1.56rem;
-        $space-left-land:1.25rem;
-        $space-left-port:1rem;
-        $space-left-phone:1rem;
+        $space-left:9.56rem;
+        $space-left-land:6.25rem;
+        $space-left-port:4.375rem;
+        $space-left-phone:2rem;
 
         
 
@@ -65,8 +65,6 @@ export default defineConfig({
             } //1800
           }
         }
-
-
         .pot {
           padding: 0 $space-left ;
           
@@ -81,6 +79,7 @@ export default defineConfig({
             padding: 0 $space-left-phone;
           }
         }
+ 
         
         `,
       },
